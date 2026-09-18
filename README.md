@@ -22,3 +22,21 @@ Clone or download this repository, then install the required dependencies:
 
 ```bash
 pip install -r requirements.txt
+
+```
+
+## Runtime data and public repository scope
+
+The application initializes an empty SQLite database through `init_db()` at startup.
+No committed query database is needed to run it. Configure credentials locally using
+`.env.example`; do not commit `.env`, generated reports or runtime databases.
+
+The previously tracked database contained a saved query/report. Its provenance and
+publication approval were not established, so it has been removed from this branch.
+The existing `*.db` ignore rule prevents new untracked database files from being added
+normally; it does not remove prior commits. Historical copies remain in Git history
+and require a separate publication review. No history rewrite has been performed.
+
+This change does not verify live provider/scraper availability, production deployment,
+or the current correctness of pricing assumptions. The existing calculator and sentiment
+tests cover specific behavior only.
